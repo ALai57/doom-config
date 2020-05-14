@@ -18,10 +18,15 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 (package! cider)
+(package! treemacs
+  :recipe (:type git :host github :repo "Alexander-Miller/treemacs"))
+(package! treemacs-evil)
+(package! all-the-icons)
 (package! evil-smartparens)
 (package! evil-lisp-state
   :recipe (:type git :host github :repo "syl20bnr/evil-lisp-state"))
 (package! cider-eval-sexp-fu)
+
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:
