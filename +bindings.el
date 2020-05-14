@@ -1,21 +1,29 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Remove keymap so it can be rebound
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       ":" nil)
 
-;; Bind Spacemacs keybinding for M-x, SPC SPC
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Leader key
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       (:when (featurep! :completion ivy)
-        :desc "M-x"                     :n "SPC" #'counsel-M-x))
+        :desc "M-x" :nvl "SPC" #'counsel-M-x))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keybindings from spacemacs that I'd like to have back
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
-      :desc "counsel-projectile-rg" :n "s g p" #'counsel-projectile-rg
-      :desc "magit status" :n "g s" #'magit
-      :desc "lisp-state" :n "k" #'lisp-state-toggle-lisp-state)
+      ;;:desc "counsel-projectile-rg" :n "s g p" #'counsel-projectile-rg
+      :desc "magit status" :n "g s" #'magit)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; CIDER
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun cider-eval-around-point ()
   (interactive)
   ;; like save-excursion, but we need to set the marker type to 't
@@ -25,7 +33,6 @@
     (cider-eval-sexp-at-point)
     (goto-char m)))
 
-;; Cider keybindings
 (map! :after clojure-mode
       :map clojure-mode-map
       :n ", e a" #'cider-eval-around-point
@@ -38,11 +45,14 @@
       :n ", t n" #'cider-test-run-ns-tests
       :n ", t p" #'cider-test-run-project-tests
       :n ", s s" #'cider-switch-to-repl-buffer
-      :n ", '" #'cider-jack-in-clj
-      )
+      :n ", '" #'cider-jack-in-clj)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; LISP state
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(map! :leader
+      :desc "lisp-state" :n "k" #'lisp-state-toggle-lisp-state)
 
-;; LISP state keybindings
 (define-key evil-lisp-state-map "c" 'sp-convolute-sexp)
 (define-key evil-lisp-state-map "dx" 'sp-kill-sexp)
 (define-key evil-lisp-state-map "D" 'evil-delete-line)
