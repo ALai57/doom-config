@@ -51,4 +51,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+(use-package evil-lisp-state
+  :init (setq evil-lisp-state-global t))
 (load! "+bindings")
