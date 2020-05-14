@@ -45,6 +45,7 @@
 ;; LISP state keybindings
 (define-key evil-lisp-state-map "c" 'sp-convolute-sexp)
 (define-key evil-lisp-state-map "dx" 'sp-kill-sexp)
+(define-key evil-lisp-state-map "D" 'evil-delete-line)
 (define-key evil-lisp-state-map "e" 'sp-splice-sexp-killing-forward)
 (define-key evil-lisp-state-map "E" 'sp-splice-sexp-killing-backward)
 (define-key evil-lisp-state-map "r" 'sp-raise-sexp)

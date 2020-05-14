@@ -27,7 +27,7 @@
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       ;;fill-column       ; a `fill-column' indicator
+       fill-column       ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;indent-guides     ; highlighted indent columns
        modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -94,7 +94,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;cc                ; C/C++/Obj-C madness
-       ;;clojure           ; java with a lisp
+       clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;data              ; config/data formats
        emacs-lisp        ; drown in parentheses
@@ -112,10 +112,9 @@
        org               ; organize your plain life in plain text
        ;;perl              ; write code no one else can comprehend
        ;;plantuml          ; diagrams for confusing people more
-       ;;python            ; beautiful is better than ugly
+       python            ; beautiful is better than ugly
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
-       ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
@@ -125,7 +124,6 @@
        ;;yaml              ; JSON, but readable
 
        :email
-       ;;notmuch
        ;;(wanderlust +gmail)
 
        :app

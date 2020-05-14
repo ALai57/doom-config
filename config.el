@@ -51,6 +51,17 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(cider-result-overlay-face ((t (:foreground "lightgreen" :slant italic)))))
+
 (use-package evil-lisp-state
   :init (setq evil-lisp-state-global t))
+(add-hook 'evil-lisp-state-entry-hook 'evil-smartparens-mode)
+(add-hook 'emacs-lisp-mode-hook 'evil-smartparens-mode)
+
 (load! "+bindings")
