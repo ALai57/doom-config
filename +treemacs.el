@@ -25,3 +25,6 @@
 (treemacs-create-icon
  :icon (format "  %s\t" (all-the-icons-icon-for-file ".sh" :v-adjust 0))
  :extensions ("sh" "zsh"))
+(treemacs-create-icon
+ :icon (format "  %s\t" (all-the-icons-icon-for-file ".java" :v-adjust 0))
+ :extensions (".java" ".class" ".jar"))

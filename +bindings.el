@@ -19,15 +19,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       :desc "magit status" :n "g s" #'magit
-      :desc "magit todo list" :n "g T" #'magit-todos-list
-      )
+      :desc "magit todo list" :n "g T" #'magit-todos-list)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Treemacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       :desc "Treemacs" :n "p t" #'treemacs)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic
@@ -47,6 +45,7 @@
 
 (map! :after clojure-mode
       :map clojure-mode-map
+      :n ", d f" #'cider-debug-defun-at-point
       :n ", e a" #'cider-eval-around-point
       :n ", e b" #'cider-eval-buffer
       :n ", e c" #'cider-pprint-eval-last-sexp-to-comment
@@ -57,7 +56,15 @@
       :n ", t n" #'cider-test-run-ns-tests
       :n ", t p" #'cider-test-run-project-tests
       :n ", s s" #'cider-switch-to-repl-buffer
+      :n ", s q" #'cider-quit
       :n ", '" #'cider-jack-in-clj)
+
+(defun my-cider-debug-toggle-insert-state ()
+  (if cider--debug-mode    ;; Checks if you're entering the debugger
+      (evil-insert-state)  ;; If so, turn on evil-insert-state
+    (evil-normal-state)))  ;; Otherwise, turn on normal-state
+
+(add-hook 'cider--debug-mode-hook 'my-cider-debug-toggle-insert-state)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LISP state
