@@ -14,3 +14,5 @@ Symlink the files in this folder into your ~/.doom.d/ folder with
 cp --symbolic-link [doom-config/*] ~/.doom.d/
 ```
 
+# Useful commands
+alias dr='~/.emacs.d/bin/doom sync'
