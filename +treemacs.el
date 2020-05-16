@@ -15,7 +15,7 @@
  :extensions ("git" "gitignore"))
 (treemacs-create-icon
  :icon (format "  %s\t" (all-the-icons-icon-for-file "dockerfile" :v-adjust 0))
- :extensions ("dockerfile"))
+ :extensions ("dockerfile" "dockerignore"))
 (treemacs-create-icon
  :icon (format "  %s\t" (all-the-icons-icon-for-file ".py" :v-adjust 0))
  :extensions ("py" "pyc"))

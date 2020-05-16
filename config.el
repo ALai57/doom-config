@@ -125,8 +125,22 @@
   (setq doom-modeline-height 40)
   (setq doom-modeline-icon (display-graphic-p))
   (setq doom-modeline-persp-name nil)
+  (setq doom-modeline--flymake-icon nil)
+  (setq doom-modeline--flycheck-text nil)
+  (setq doom-modeline-persp-name t)
+  (setq doom-modeline-buffer-modification-icon t)
+  (setq doom-modeline-major-mode-color-icon t)
+  (setq doom-modeline-percent-position nil)
   ;;(doom-themes-org-config)
+  ;;
   )
+
+;; Define your custom doom-modeline
+(after! doom-modeline
+  (remove-hook 'doom-modeline-mode-hook #'size-indication-mode))
+;;(setq doom-modeline--flymake-icon nil)
+;;(setq doom-modeline--flycheck-text nil)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Aggressive indent mode
