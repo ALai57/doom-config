@@ -5,6 +5,9 @@
  :icon (format "  %s\t" (all-the-icons-icon-for-file ".clj" :v-adjust 0))
  :extensions ("clj"))
 (treemacs-create-icon
+ :icon (format "  %s\t" (all-the-icons-icon-for-file ".el" :v-adjust 0))
+ :extensions ("el"))
+(treemacs-create-icon
  :icon (format "  %s\t" (all-the-icons-icon-for-file ".json" :v-adjust 0))
  :extensions ("json"))
 (treemacs-create-icon

@@ -140,9 +140,12 @@
 ;; Define your custom doom-modeline
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode))
-;;(setq doom-modeline--flymake-icon nil)
-;;(setq doom-modeline--flycheck-text nil)
-
+(setq evil-insert-state-tag " <INSERT> ")
+(setq evil-visual-state-tag " <VISUAL> ")
+(setq evil-motion-state-tag " <MOTION> ")
+(setq evil-emacs-state-tag " <EMACS> ")
+(setq evil-lisp-state-tag " <LISP> ")
+(setq evil-multiedit-state-tag " <MULTI-EDIT> ")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Aggressive indent mode
