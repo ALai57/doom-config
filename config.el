@@ -113,13 +113,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package doom-themes
   :config
-  ;; Global settings (defaults)
-  ;;(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-  ;;doom-themes-enable-italic t) ; if nil, italics is universally disabled
   (load-theme 'doom-one t)
 
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
+  (doom-themes-visual-bell-config)              ;; Flashing mode-line on errors
   (doom-themes-treemacs-config)
   (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-height 40)
@@ -140,6 +136,7 @@
 ;; Define your custom doom-modeline
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode))
+(setq evil-normal-state-tag " <NORMAL> ")
 (setq evil-insert-state-tag " <INSERT> ")
 (setq evil-visual-state-tag " <VISUAL> ")
 (setq evil-motion-state-tag " <MOTION> ")
