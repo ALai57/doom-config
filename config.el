@@ -144,6 +144,12 @@
 (setq evil-lisp-state-tag " <LISP> ")
 (setq evil-multiedit-state-tag " <MULTI-EDIT> ")
 
+(custom-set-faces!
+  '(doom-modeline-evil-insert-state :inherit doom-modeline-urgent)
+  '(doom-modeline-evil-visual-state :inherit doom-modeline-warning)
+  '(doom-modeline-evil-normal-state :inherit doom-modeline-debug)
+  ;;'(doom-modeline-evil-lisp-state :inherit font-lock-constant-face)
+  )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Aggressive indent mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
