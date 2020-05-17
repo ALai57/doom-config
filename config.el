@@ -130,6 +130,8 @@
   (setq doom-modeline-persp-name t)
   (setq doom-modeline-buffer-modification-icon t)
   (setq doom-modeline-major-mode-color-icon t)
+  (setq doom-modeline-major-mode-icon t)
+  (setq doom-modeline-modal-icon nil)
   (setq doom-modeline-percent-position nil)
   ;;(doom-themes-org-config)
   ;;
