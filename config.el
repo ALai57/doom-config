@@ -79,8 +79,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Treemacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package all-the-icons)
+(use-package all-the-icons
+  :defer t)
 (use-package! treemacs-persp
+  :defer t
   :when (featurep! :ui workspaces)
   :after (treemacs persp-mode)
   :config
@@ -106,7 +108,6 @@
           (treemacs--follow))))))
 
 (use-package treemacs-evil)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customized themes
@@ -158,9 +159,11 @@
 (font-lock-add-keywords 'org-mode
                         '(("^ *\\([-]\\) "
                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;;(use-package org-bullets
+  ;;:defer t
+  ;;:config
+  ;;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (let* ((variable-tuple
         (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
@@ -198,10 +201,13 @@
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
-(use-package color)
-(set-face-attribute 'org-block nil :background
-                    (color-darken-name
-                     (face-attribute 'default :background) 3))
+;;(use-package color
+  ;;:defer t
+  ;;)
+
+;;(set-face-attribute 'org-block nil :background
+                    ;;(color-darken-name
+                     ;;(face-attribute 'default :background) 3))
 
 (setq org-src-block-faces '(("emacs-lisp" (:background "#f9edff"))
                             ("clojure" (:background "#fff1bf"))
@@ -209,15 +215,11 @@
                             ("ruby" (:background "#1c0c0e"))
                             ("python" (:background "#102611"))))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ruby . t))
- '((python . t)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Aggressive indent mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package aggressive-indent)
+(use-package aggressive-indent
+  :defer t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customization layers
