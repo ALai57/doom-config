@@ -20,18 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "monospace" :size 20))
-
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq org-directory "~/org/")       ;; MUST BE SET BEFORE ORG LOADS
 (setq display-line-numbers-type t)
 
 
@@ -62,19 +51,27 @@
  ;; If there is more than one, they won't work right.
  '(cider-result-overlay-face ((t (:foreground "lightgreen" :slant italic)))))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Clojure mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook 'evil-smartparens-mode)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Evil lisp state hooks
+;; Emacs lisp state config
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'emacs-lisp-mode-hook 'evil-smartparens-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Evil lisp state config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package evil-lisp-state
   :init (setq evil-lisp-state-global t))
 (add-hook 'evil-lisp-state-entry-hook 'evil-smartparens-mode)
 (add-hook 'evil-lisp-state-entry-hook 'aggressive-indent-mode)
-(add-hook 'emacs-lisp-mode-hook 'evil-smartparens-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Treemacs
@@ -131,10 +128,14 @@
   (setq doom-modeline-modal-icon nil)
   (setq doom-modeline-percent-position nil)
   ;;(doom-themes-org-config)
-  ;;
   )
 
-;; Define your custom doom-modeline
+;; Custom doom-modeline
+(defface doom-modeline-evil-lisp-state
+  '((t (:inherit (font-lock-constant-face bold))))
+  "Face for the lisp state tag in evil state indicator."
+  :group 'doom-modeline-faces)
+
 (after! doom-modeline
   (remove-hook 'doom-modeline-mode-hook #'size-indication-mode))
 (setq evil-normal-state-tag " <NORMAL> ")
@@ -201,10 +202,7 @@
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
-;;(use-package color
-  ;;:defer t
-  ;;)
-
+;;(use-package color :defer t)
 ;;(set-face-attribute 'org-block nil :background
                     ;;(color-darken-name
                      ;;(face-attribute 'default :background) 3))
@@ -216,7 +214,7 @@
                             ("python" (:background "#102611"))))
 
 (setq org-babel-clojure-backend 'cider)
-(use-package cider)
+;;(use-package cider)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Indenting
@@ -234,7 +232,7 @@
     (context 2)
     (route-middleware 1)
     (routes 0)
-    ))
+    (defsystest 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customization layers
