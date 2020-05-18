@@ -53,10 +53,16 @@
       :n ", e f" #'cider-eval-defun-at-point
       :n ", e n" #'cider-eval-sexp-at-point
       :n ", e l" #'cider-eval-last-sexp
-      :n ", t n" #'cider-test-run-ns-tests
-      :n ", t p" #'cider-test-run-project-tests
+      :n ", r t l" #' cljr-thread-last-all
+      :n ", r t f" #' cljr-thread-first-all
+      :n ", r e f" #' cljr-extract-function
+      :n ", r e c" #' cljr-extract-constant
+      :n ", r e d" #' cljr-extract-def
+      :n ", r m l" #' cljr-move-to-let
       :n ", s s" #'cider-switch-to-repl-buffer
       :n ", s q" #'cider-quit
+      :n ", t n" #'cider-test-run-ns-tests
+      :n ", t p" #'cider-test-run-project-tests
       :n ", '" #'cider-jack-in-clj)
 
 (defun my-cider-debug-toggle-insert-state ()

@@ -82,7 +82,7 @@
 (use-package all-the-icons
   :defer t)
 (use-package! treemacs-persp
-  :defer t
+  ;;:defer t
   :when (featurep! :ui workspaces)
   :after (treemacs persp-mode)
   :config
