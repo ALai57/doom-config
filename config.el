@@ -210,16 +210,31 @@
                      ;;(face-attribute 'default :background) 3))
 
 (setq org-src-block-faces '(("emacs-lisp" (:background "#f9edff"))
-                            ("clojure" (:background "#fff1bf"))
+                            ("clojure" (:background "#3b372b"))
                             ("bash" (:background "#171717"))
                             ("ruby" (:background "#1c0c0e"))
                             ("python" (:background "#102611"))))
 
+(setq org-babel-clojure-backend 'cider)
+(use-package cider)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Aggressive indent mode
+;; Indenting
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package aggressive-indent
   :defer t)
+
+(after! clojure-mode
+  (define-clojure-indent
+    (PUT 2)
+    (POST 2)
+    (PATCH 2)
+    (DELETE 2)
+    (GET 2)
+    (context 2)
+    (route-middleware 1)
+    (routes 0)
+    ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customization layers
