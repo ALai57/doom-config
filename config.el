@@ -229,6 +229,7 @@
     (PATCH 2)
     (DELETE 2)
     (GET 2)
+    (addtest 1)
     (context 2)
     (route-middleware 1)
     (routes 0)

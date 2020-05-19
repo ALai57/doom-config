@@ -53,6 +53,7 @@
       :n ", e f" #'cider-eval-defun-at-point
       :n ", e n" #'cider-eval-sexp-at-point
       :n ", e l" #'cider-eval-last-sexp
+      :n ", e p" #'cider-pprint-eval-last-sexp
       :n ", r t l" #' cljr-thread-last-all
       :n ", r t f" #' cljr-thread-first-all
       :n ", r e f" #' cljr-extract-function
