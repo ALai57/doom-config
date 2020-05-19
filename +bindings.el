@@ -32,7 +32,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map!
  ;;:n "[S-return]" #'newline-and-indent
- :v "v" #er/expand-region)
+ :v "v" #'er/expand-region
+ :v "u" #'er/contract-region
+ :v "s" #'evil-surround-region)
 
 (evil-add-to-alist
  'evil-surround-pairs-alist
