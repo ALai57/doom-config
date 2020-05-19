@@ -30,6 +30,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(map! :leader
+      :desc "Open .zshrc file" :g "h z"
+      (lambda () (interactive) (find-file "~/.zshrc")))
+
 (map!
  ;;:n "[S-return]" #'newline-and-indent
  :v "v" #'er/expand-region
