@@ -40,14 +40,16 @@
  :v "u" #'er/contract-region
  :v "s" #'evil-surround-region)
 
-(evil-add-to-alist
- 'evil-surround-pairs-alist
- ?\( '("(" . ")")
- ?\[ '("[" . "]")
- ?\{ '("{" . "}")
- ?\) '("( " . " )")
- ?\] '("[ " . " ]")
- ?\} '("{ " . " }"))
+(with-eval-after-load 'evil-surround
+  (evil-add-to-alist
+   'evil-surround-pairs-alist
+   ?\( '("(" . ")")
+   ?\[ '("[" . "]")
+   ?\{ '("{" . "}")
+   ?\) '("( " . " )")
+   ?\] '("[ " . " ]")
+   ?\} '("{ " . " }")))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CIDER
