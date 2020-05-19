@@ -3,6 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; TODO: Undo tree? For being able to undo autoindenting changes
+;; TODO: Keybinding for newline and indent? S-RET?
+;; TODO: Make sure insert always inserts balanced parens
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
