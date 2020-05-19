@@ -224,7 +224,9 @@
 ;; Indenting
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package aggressive-indent
-  :defer t)
+  :defer t
+  :config
+  (add-to-list 'aggressive-indent-protected-commands 'undo-fu-only-undo))
 
 (after! clojure-mode
   (define-clojure-indent
