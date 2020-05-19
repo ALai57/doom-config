@@ -235,6 +235,7 @@
     (GET 2)
     (addtest 1)
     (context 2)
+    (pending 1)
     (route-middleware 1)
     (routes 0)
     (defsystest 1)))
