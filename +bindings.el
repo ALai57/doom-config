@@ -34,6 +34,10 @@
       :desc "Open .zshrc file" :g "h z"
       (lambda () (interactive) (find-file "~/.zshrc")))
 
+""
+(map!
+ :i "<backspace>" #'paredit-backward-delete)
+
 (map!
  ;;:n "[S-return]" #'newline-and-indent
  :v "v" #'er/expand-region
@@ -95,7 +99,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LISP state
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (map! :leader
       :desc "lisp-state" :n "k" #'lisp-state-toggle-lisp-state)
 
