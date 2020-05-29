@@ -12,7 +12,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       (:when (featurep! :completion ivy)
-        :desc "M-x" :nv "SPC" #'counsel-M-x))
+       :desc "M-x" :nv "SPC" #'counsel-M-x))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Magit
@@ -34,10 +34,6 @@
       :desc "Open .zshrc file" :g "h z"
       (lambda () (interactive) (find-file "~/.zshrc")))
 
-""
-(map!
- :i "<backspace>" #'paredit-backward-delete)
-
 (map!
  ;;:n "[S-return]" #'newline-and-indent
  :v "v" #'er/expand-region
@@ -54,7 +50,6 @@
    ?\] '("[ " . " ]")
    ?\} '("{ " . " }")))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CIDER
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -69,6 +64,7 @@
 
 (map! :after clojure-mode
       :map clojure-mode-map
+      :i "<backspace>" #'paredit-backward-delete
       :n ", d f" #'cider-debug-defun-at-point
       :n ", e a" #'cider-eval-around-point
       :n ", e b" #'cider-eval-buffer
