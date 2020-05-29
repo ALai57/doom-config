@@ -34,6 +34,11 @@
       :desc "Open .zshrc file" :g "h z"
       (lambda () (interactive) (find-file "~/.zshrc")))
 
+(map! :leader
+      :desc "Raise (promote) popup to buffer" :g "w r" #'+popup/raise
+      :desc "Lower (demote) buffer to popup" :g "w R" #'+popup/buffer)
+
+
 (map!
  ;;:n "[S-return]" #'newline-and-indent
  :v "v" #'er/expand-region
@@ -92,10 +97,11 @@
     (evil-normal-state)))  ;; Otherwise, turn on normal-state
 
 (add-hook 'cider--debug-mode-hook 'my-cider-debug-toggle-insert-state)
+(set-popup-rule! "^\\*cider-repl.*?" :size 0.4)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; LISP state
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (map! :leader
       :desc "lisp-state" :n "k" #'lisp-state-toggle-lisp-state)
 
