@@ -69,7 +69,7 @@
       :n ", e a" #'cider-eval-around-point
       :n ", e b" #'cider-eval-buffer
       :n ", e c" #'cider-pprint-eval-last-sexp-to-comment
-      :n ", e e" #'cider-eval-last-sexp
+      :n ", e e" #'cider-eval-sexp-up-to-point
       :n ", e f" #'cider-eval-defun-at-point
       :n ", e n" #'cider-eval-sexp-at-point
       :n ", e l" #'cider-eval-last-sexp
