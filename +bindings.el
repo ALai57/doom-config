@@ -36,7 +36,8 @@
 
 (map! :leader
       :desc "Raise (promote) popup to buffer" :g "w r" #'+popup/raise
-      :desc "Lower (demote) buffer to popup" :g "w R" #'+popup/buffer)
+      :desc "Lower (demote) buffer to popup" :g "w R" #'+popup/buffer
+      :desc "Toggle popup" :g "`" #'+popup/toggle)
 
 
 (map!
